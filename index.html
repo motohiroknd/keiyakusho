@@ -3,509 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ファイルダウンロード - 20260310⑨_工事下請基本契約書.pdf</title>
+    <title>工事下請基本契約書 - ダウンロード</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- jsPDF ライブラリの読み込み -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        /* カスタムスクロールバー */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #e2e8f0; 
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #cbd5e1; 
-        }
-        
-        /* トースト通知のアニメーション */
-        .toast-enter {
-            animation: slideIn 0.3s ease-out forwards;
-        }
-        .toast-exit {
-            animation: slideOut 0.3s ease-in forwards;
-        }
-        @keyframes slideIn {
-            from { transform: translateY(100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes slideOut {
-            from { transform: translateY(0); opacity: 1; }
-            to { transform: translateY(100%); opacity: 0; }
-        }
-
-        /* プレビューエリア内のフォント設定（PDFっぽく） */
-        #fileContent {
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        body {
             font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc;
+        }
+        .contract-preview {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
     </style>
 </head>
-<body class="bg-[#f8fafc] min-h-screen flex flex-col text-slate-800 antialiased">
+<body class="min-h-screen flex flex-col items-center py-10 px-4">
 
-    <!-- Minimal Header -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-10">
-        <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-            <div class="flex items-center gap-2.5 text-slate-800">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600">
-                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                </svg>
-                <span class="text-sm font-semibold tracking-wide">SecureDocs</span>
-            </div>
-            <div class="flex items-center gap-4 text-sm text-slate-500 font-medium">
-                <button class="hover:text-slate-900 transition-colors">ヘルプ</button>
-                <div class="w-px h-4 bg-slate-200"></div>
-                <button class="flex items-center gap-2 hover:text-slate-900 transition-colors">
-                    <div class="w-6 h-6 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    </div>
-                </button>
-            </div>
-        </div>
+    <!-- Header Section -->
+    <header class="w-full max-w-4xl mb-8 text-center">
+        <h1 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2">工事下請基本契約書</h1>
+        <p class="text-slate-600">株式会社日本財託管理サービス</p>
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow w-full max-w-3xl mx-auto px-4 py-12 flex flex-col items-center">
-        
-        <!-- Flat Card -->
-        <div class="w-full bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-            
-            <!-- File Info Section -->
-            <div class="p-8 flex flex-col sm:flex-row items-start gap-6">
-                <!-- Icon Box -->
-                <div class="w-16 h-16 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-red-500">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <path d="M10 13H8"></path>
-                        <path d="M16 13h-2"></path>
-                        <path d="M10 17H8"></path>
-                        <path d="M16 17h-2"></path>
-                        <path d="M10 9H8"></path>
+    <main class="w-full max-w-4xl bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200">
+        <!-- Download Bar -->
+        <div class="bg-slate-50 p-4 border-b border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-red-100 p-2 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
                 </div>
+                <div>
+                    <p class="text-sm font-medium text-slate-800">20260310⑨_工事下請基本契約書.pdf</p>
+                    <p class="text-xs text-slate-500">PDF Document</p>
+                </div>
+            </div>
+            <button id="downloadBtn" class="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors w-full sm:w-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                ダウンロード
+            </button>
+        </div>
+
+        <!-- PDF Viewer Area -->
+        <div class="relative bg-slate-200 aspect-[1/1.414] overflow-y-auto p-4 md:p-8" id="viewerContainer">
+            <!-- Loading Indicator -->
+            <div id="loader" class="absolute inset-0 flex items-center justify-center bg-white z-10">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+            </div>
+
+            <!-- Content Area (Simulating PDF Rendering for Preview) -->
+            <div class="contract-preview bg-white w-full min-h-full mx-auto p-8 text-[10px] md:text-sm leading-relaxed text-slate-800 overflow-hidden relative">
+                <div class="text-center mb-6">
+                    <h2 class="text-xl font-bold border-b-2 border-slate-800 inline-block pb-1">工事下請基本契約書</h2>
+                </div>
                 
-                <!-- Text Details -->
-                <div class="flex-grow">
-                    <h1 class="text-xl font-semibold text-slate-900 leading-tight mb-2 break-all">
-                        20260310⑨_工事下請基本契約書.pdf
-                    </h1>
-                    <p class="text-sm text-slate-500 mb-4">株式会社日本財託管理サービス</p>
-                    
-                    <div class="flex flex-wrap gap-x-6 gap-y-2 text-xs text-slate-500 font-medium">
-                        <div class="flex items-center gap-1.5">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-                            PDF ドキュメント
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M10 4v4"></path><path d="M2 8h20"></path><path d="M6 4v4"></path></svg>
-                            154 KB
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                            更新: 2026/03/10
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <p class="mb-4">株式会社日本財託管理サービス(以下「甲」という)と、**************** (以下「乙」という)とは、甲が請け負った工事(以下「元請工事」という)のうちの一部の工事(個別工事を指し、以下「工事」という)を乙に発注する請負契約(以下「個別契約」という)に関し、次のとおり工事下請基本契約(以下「本契約」という)を締結する。</p>
 
-            <div class="w-full h-px bg-slate-100"></div>
+                <h3 class="font-bold mb-2">第1条(総則)</h3>
+                <p class="mb-4">甲及び乙は、元請工事を完成するため、甲が乙に発注する工事について、発注書・発注請書及び図面、仕様書、その他の図書(以下「設計図書」という) 並びに見積要綱に定めるもののほか、本契約に基づき、信義に従い誠実にこれを履行する。</p>
 
-            <!-- Action Buttons Section -->
-            <div class="p-6 bg-slate-50 flex flex-col sm:flex-row gap-3 justify-end">
-                <button onclick="togglePreview()" id="previewBtn" class="px-5 py-2.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900 rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-slate-200 focus:ring-offset-1">
-                    <svg id="previewIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    <span id="previewText">プレビュー</span>
-                </button>
-                <button onclick="downloadAsPDF()" class="px-5 py-2.5 bg-slate-900 text-white hover:bg-slate-800 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-1 shadow-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                    PDFをダウンロード
-                </button>
-            </div>
+                <h3 class="font-bold mb-2">第2条(乙の工事完成義務・安全管理義務)</h3>
+                <ol class="list-decimal ml-5 mb-4 space-y-1">
+                    <li>乙は、個別契約(発注書、設計図書を含む)に基づき工事を完成させ、甲に引き渡す義務を負う。</li>
+                    <li>乙は、工事の施工に当たり、事業者として作業員の災害防止に万全を期すと共に、安全管理を徹底しなければならない。</li>
+                </ol>
 
-            <!-- Preview Content -->
-            <div id="previewSection" class="hidden flex-col border-t border-slate-200 bg-white">
-                <div class="px-6 py-3 border-b border-slate-100 flex justify-between items-center bg-white">
-                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">テキストコンテンツ</span>
-                </div>
-                <div class="p-6 md:p-8 h-[400px] overflow-y-auto bg-white">
-                    <pre id="fileContent" class="text-[13px] leading-7 whitespace-pre-wrap text-slate-700 max-w-full font-sans"></pre>
+                <h3 class="font-bold mb-2">第3条(関連工事との調整)</h3>
+                <ol class="list-decimal ml-5 mb-4 space-y-1">
+                    <li>甲は、元請工事を円滑に完成するため、乙に発注した工事と施工上関係のあるその他の工事(既に乙に発注した工事以外を指し、以下「関連工事」という)との調整を図り、必要がある場合は乙に対して指示を行い、乙はその指示に従う。</li>
+                    <li>乙は、関連工事の施工者と緊密に連絡・調整を図り、元請工事の円滑な完成に協力する。</li>
+                </ol>
+
+                <div class="bg-gradient-to-t from-white via-white/80 to-transparent absolute bottom-0 left-0 right-0 h-40 flex items-end justify-center pb-8">
+                    <span class="text-slate-400 italic text-xs">プレビュー表示中... 全ての内容はダウンロードしてご確認ください。</span>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Modern Toast Notification -->
-    <div id="toast" class="fixed bottom-6 right-6 bg-white border border-slate-200 text-slate-800 px-5 py-4 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex items-start gap-3 hidden z-50 min-w-[320px] max-w-md">
-        <div id="toastIconWrapper" class="mt-0.5 flex-shrink-0"></div>
-        <div class="flex-grow">
-            <h4 id="toastTitle" class="text-sm font-semibold text-slate-900"></h4>
-            <p id="toastMessage" class="text-xs text-slate-500 mt-1"></p>
-        </div>
-        <button onclick="closeToast()" class="text-slate-400 hover:text-slate-600 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </button>
-    </div>
+    <!-- Footer -->
+    <footer class="mt-8 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 株式会社日本財託管理サービス</p>
+    </footer>
 
     <script>
-        const pdfTextData = `工事下請基本契約書
+        // PDFデータ (Base64またはBlob URLをシミュレート)
+        // 実際の実装では、ここにアップロードされたPDFのバイナリデータを割り当てます。
+        const downloadBtn = document.getElementById('downloadBtn');
+        const loader = document.getElementById('loader');
 
-株式会社日本財託管理サービス(以下「甲」という)と、**************** (以下「乙」という)とは、甲が請け負った工事
- (以下「元請工事」という)のうちの一部の工事(個別工事を指し、以下「工事」という)を乙に発注する請負契約(以下「個
- 別契約」という)に関し、次のとおり工事下請基本契約(以下「本契約」という)を締結する。
+        // ページ読み込み完了時の処理
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 800);
+        });
 
-第1条(総則)
-
-甲及び乙は、元請工事を完成するため、甲が乙に発注する工事について、発注書・発注請書及び図面、仕様書、その他の図書
- (以下「設計図書」という) 並びに見積要綱に定めるもののほか、本契約に基づき、信義に従い誠実にこれを履行する。
-
-第2条(乙の工事完成義務・安全管理義務)
-
-1. 乙は、個別契約(発注書、設計図書を含む)に基づき工事を完成させ、甲に引き渡す義務を負う。
-2. 乙は、工事の施工に当たり、事業者として作業員の災害防止に万全を期すと共に、安全管理を徹底しなければならない。
-
-第3条(関連工事との調整)
-
-1.甲は、元請工事を円滑に完成するため、乙に発注した工事と施工上関係のあるその他の工事(既に乙に発注した工事以外を
- 指し、以下「関連工事」という)との調整を図り、必要がある場合は乙に対して指示を行い、乙はその指示に従う。
-2. 乙は、関連工事の施工者と緊密に連絡・調整を図り、元請工事の円滑な完成に協力する。
-
-第4条(個別契約の成立)
-
-1. 甲乙間の個別契約は、原則、電磁的方法又はFAXにて締結する。ただし、甲乙が事前に合意の上、個別契約にかかる工事
- 下請契約を書面により締結する場合は、この限りでない。
-2. 前項の電磁的方法は、次のいずれかとする。
- ①甲乙の合意により使用するクラウドシステム(以下「クラウドシステム」という)を介する方法
- ②メール
- ③電子署名サービスを利用した電子契約
-3.個別契約は、工事下請契約書により締結する場合を除き、甲から乙への発注書の交付 (第2項①によるデータ発注を含む)
- に対し、乙が発注請書の提出又は甲乙が事前に合意した電磁的方法による承諾をしたときに成立する。
-4. 個別契約を発注書(第2項①による発注を含み、以下同じ) 及び発注請書(電磁的方法による承諾を含み、以下同じ)によ
- り行う場合、甲は発注書に次の事項を記載する。ただし、⑦⑧は甲乙間で定めた場合に限る。
- ①工事内容②請負代金額③支払時期 ④支払方法 ⑤工事着手時期 ⑥工事完成時期 ⑦工事を施工しない日又は時間帯
- ⑧前金払、部分払 (出来高払を含む)の支払時期及び方法
-5. 個別契約を発注書及び発注請書により行う場合、個別契約には甲が別途定める「個別工事下請契約約款」(以下「約款」と
- いう)が適用される。なお、適用される約款は発注時のものに限る。
-6. 約款は、甲が発注書に都度添付するほか、甲乙が容易にアクセスできる場所(クラウドシステム上、QRコードリンク先、
- その他甲乙合意による場所)に置くものとし、乙は約款を容易に閲覧し、出力し、保存できることを確認する。
-7. 個別契約を発注書及び発注請書により行う場合において、約款に記載がない事項につき本契約に定めがあるときは、本契約
- の定めに従う。
-
-第5条(工事完了・検査)
-
-1. 乙は、工事を完了したときは、速やかに甲に完了報告書を交付し、完了報告書の交付をもって乙から甲への検査の申出とす
- る。甲は検査の申出を受けた後、速やかに検査を行う。なお、完了報告書は写真台帳を含み、様式を問わない。
-2. 甲が前項の完了報告書を受領した翌日から20日以内、又は工事完了月の翌月10日までのいずれか早い日までに、乙に検査
- 完了又は検査不合格の通知を行わないときは、検査に合格したものとみなす。
-
-第6条(支払い・引渡し)
-
-1. 前条の工事完了後、乙は甲に請求書を交付し、甲は工事完了月の翌月末までに個別契約に基づき請負代金を支払う。
-2. 前項の請求書交付をもって、乙から甲への工事引渡しの申出とし、甲は請求書受領後、直ちに引渡しを受けるものとする。
-
-第7条(条件変更等)
-
-1. 乙は、次の各号のいずれかに該当することを発見したときは、直ちに書面をもって甲に通知する。
- ①設計図書と工事現場の状態とが一致しないこと
- ②設計図書の表示が不明確であること(図面と仕様書間の矛盾、設計図書の不備等があることを含む)
- ③工事現場において、施工の支障となる予期することのできない事態が発生したこと
-
-2. 甲は前項の通知を受けたとき、直ちに調査を行い、工事の内容、工期又は請負代金額を変更する必要があると認められると
- きは、甲乙協議の上定める。
-
-第8条(第三者損害)
-
-1. 乙の施工により第三者に損害を及ぼしたときは、乙がその損害を賠償する。ただし、甲の責に帰すべき事由により生じた損
- 害については、甲の負担とする。
-2. 前項の損害賠償金を甲が第三者に支払った場合、甲は乙に対し求償することができる。
-
-第9条(施工一般の損害)
-
-1. 工事の完成・引渡しまでに、工事対象物件、工事材料、建築設備の機器その他施工一般について生じた損害は、次項に定め
- る場合を除きて乙の負担とする。
-2. 前項の損害のうち、次の各号のいずれかの場合に生じたものは甲の負担とする。この場合、乙は甲にその理由を示し、必要
- と認められる工期の延長を求めることができる。
- ①甲の都合により、着手期日までに工事に着手できなかったとき、又は工事を繰り延べ若しくは中止したとき
- ②前払又は部分払(出来高払を含む)が遅れたため、乙が工事に着手せず又は工事を中止したとき
- ③その他甲の責に帰すべき事由によるとき
- ④天災その他不可抗力により損害が生じたとき
-
-第10条(支給材料、貸与品)
-
-1. 甲から乙への支給材料又は貸与品がある場合には、その受渡期日及び受渡場所は、甲乙協議の上決定する。
-2. 乙は、支給材料又は貸与品の受領後速やかに検収し、不良品については甲に交換を求めることができる。
-3. 乙は、支給材料又は貸与品を善良な管理者として使用又は保管しなくてはならない。
-
-第11条(契約不適合責任)
-
-1. 工事に契約不適合があり、その契約不適合が乙の責に帰すべき事由により生じたものであるときは、甲は乙に対し、工事の
- 修補その他の履行の追完を請求することができる。ただし、甲が催告しても履行の追完がなされない場合、又は追完が不能
- であるときは、甲は乙に対し請負代金の減額請求ができる。
-2. 工事に契約不適合があり、その契約不適合が甲の責に帰すべき事由によるものであるときは、甲は、前項の請求、損害賠償
- 請求及び個別契約の解除をすることができない。
-3. 甲は、甲の供した材料の性質又は甲の与えた指図によって生じた契約不適合を理由として、第1項の請求、損害賠償請求及
- び個別契約の解除をすることができない。ただし、乙がその材料又は指図が不適当であることを知りながら甲に告げなかっ
- たときは、この限りでない。
-4. 甲が、契約不適合を知った時から1年以内にその旨を乙に通知しないときは、甲は、その契約不適合を理由として、本条第
- 1項の規定による請求、損害賠償請求及び個別契約の解除をすることができない。
-5. 第4項の規定にかかわらず、住宅のうち構造耐力上主要な部分又は雨水の浸入を防止する部分として住宅の品質確保の促進
- 等に関する法律施行令第5条第1項及び第2項に定めるものの契約不適合 (構造耐力又は雨水の浸入に影響のないものを除
- く)については、甲は引渡しの日から10年間、乙に対し、本条第1項から第3項までの規定による請求、損害賠償請求及
- び個別契約の解除をすることができる。
-
-第12条(工事の変更等)
-
-1. 甲は、必要があると認めるときは、乙に通知の上、工事を変更し又は工事の全部若しくは一部の中止をすることができる。
- この場合において、必要と認められるときは、甲乙協議の上、工期又は請負代金額を変更する。
-2. 甲は、必要があると認めるときは、乙に工期の変更を求めることができる。
-3. 前二項により、乙に損害が生じたときは、乙は甲に対し、その補償を求めることができる。
-4. 乙は、個別契約に別段の定めがあるほか、工事の追加又は変更、不可抗力、関連工事の調整、近隣住民との紛争その他正当
- な理由があるときは、甲に対しその理由を示し、必要と認められる工期の延長を請求することができる。この場合におい
- て、必要と認められるときは、甲乙協議の上、請負代金額を変更する。
-
-第13条(請負代金額の変更)
-
-1. 甲又は乙は、次の各号のいずれかに該当するときは、相手方にその理由を示し、必要と認められる請負代金額の変更を求め
- ることができる。
- ①甲の指示により関連工事の調整に従ったことで、費用の増加が生じたとき
- ②甲が支給した材料又は貸与品がある場合、その支給材料や貸与品の変更、又はそれらに関する定めの変更が生じたとき
- ③工期内の予測できない法令の制定や改廃、物価変動等により、請負代金額が明らかに適当でないと認められるとき
- ④工期が長期に亘り、工期中の法令の制定や改廃、物価変動等により、個別契約締結日から1年経過後の工事部分に対する
- 請負代金相当額が、適当でないと認められるとき
- ⑤中止した工事又は災害を受けた工事を続行する場合において、請負代金額が明らかに適当でないと認められるとき
-2. 請負代金額の変更は、原則、工事の減少部分は甲の承諾を受けた請負代金内訳書に基づき、工事の増加部分は時価又は双方
- の協議によるものとする。
-
-第14条(遅延損害金)
-
-1. 乙の責に帰すべき事由により、個別契約に定める引渡期限までに工事引渡しができないときは、甲は乙に対し、遅延日数に
- 応じて、請負代金額に対し年14.6%の割合で計算した額の遅延損害金を請求することができる。
-2. 甲が個別契約に定める期限までに請負代金の支払を完了しないときは、乙は甲に対し、遅延日数に応じて、支払遅滞額に対
- し年14.6%の割合で計算した額の遅延損害金を請求することができる。
-3. 甲が前払又は部分払(出来高払を含む)を遅延しているときも、前項の規定を適用する。
-
-第15条(甲の中止権・解除権)
-
-1. 甲は、必要に応じ、自己都合による中止又は解除であることを明確にした書面により乙に通知して、工事を中止し又は個別
- 契約を解除することができる。この場合、甲は、これによって生じる乙の損害を賠償する。
-2. 次の各号のいずれかに該当するときは、甲は、書面をもって乙に通知して、工事を中止し又は個別契約を解除することがで
- きる。この場合、甲は乙に対し、損害賠償請求をすることができる。
- ①乙が正当な理由なく、個別契約に定める工事着手の日を過ぎても工事に着手しないとき
- ②工事が正当な理由なく工程表より著しく遅れ、工期内に乙が工事を完成する見込がないことが明らかなとき
- ③前二号のほか、乙が個別契約に違反したことにより、個別契約の目的を達することができないとき
- ④乙が建設業の許可を取り消されたとき、又はその許可が効力を失ったとき
- ⑤乙の支払停止 (資金不足による手形、小切手の不渡等) などにより、工事が続行できないおそれがあると認められるとき
-3. 甲は、書面により乙に通知し、前二項で中止された工事を再開することができる。なお、その場合においても、乙は甲に対
- し、第1項に基づく損害賠償請求をすることができる。
-4. 第1項にて中止された工事が再開された場合、必要と認められる範囲で工期が延長されるものとする。
-5. 甲は、第1項及び第2項に定めるほか、乙がその債務を履行しない場合は、個別契約を解除することができる。
-
-第16条(乙の中止権・解除権)
-
-1. 甲が次の各号のいずれかに該当するとき、乙は工事を中止することができ、甲に対し書面をもって相当の期間を定めて催告
- したにも関わらず是正されないときは、個別契約を解除することができる。ただし、第4号の場合は、乙は何らの通知催告
- を要せずして、個別契約を解除することができる。
- ①前払又は部分払(出来高払を含む)を含めその支払を遅滞したとき
- ②正当な理由なく本契約に定める協議に応じないとき
- ③本契約又は個別契約に違反し、その違反によって個別契約の履行ができなくなったと認められるとき
- ④支払停止(資金不足による手形、小切手の不渡等) などにより、甲が請負代金の支払能力を欠くと認められるとき
-2. 前項により工事を中止した場合で、前項に定める事由が解消したときは、乙は、工事を再開する。
-3. 第1項により中止された工事が再開された場合、必要と認められる範囲で工期は延長される。
-4. 甲がその債務を履行しない場合、乙は第1項前段の規定に従い、個別契約を解除することができる。
-
-第17条(反社会的勢力からの排除)
-
-1. 甲及び乙は、相手方が次の各号のいずれかに該当するときは、何らの催告を要せずして個別契約を解除することができる。
- ①役員等(乙が個人である場合はその者を、乙が法人である場合はその役員又はその支店、もしくは常時、建設工事の請負
- 契約を締結する事務所の代表者をいう) が暴力団員による不当な行為の防止等に関する法律第2条第6号に規定する暴力
- 団(以下「暴力団員」 という)であると認められるとき
- ②暴力団(暴力団員による不当な行為の防止等に関する法律第2条第2号に規定する暴力団をいう)又は、暴力団員が経営
- に実質的に関与していると認められるとき
- ③役員等が暴力団又は暴力団員と社会的に非難されるべき関係を有していると認められるとき
-2. 前項により解除した者は、相手方に損害賠償請求をすることができ、解除された者は損害賠償請求をすることができない。
-
-第18条(秘密保持)
-
-乙は、工事に関し、元請工事の発注者及び甲の企業秘密並びに施工上の工法、技術、これらに関する情報又は一切の営業秘密
- (個人情報を含む)を、工事完了後であっても、第三者に開示又は漏洩してはならない。なお、工事に関するこの委任先又は下
- 請負人に関しても、これらの秘密を保持させなくてはならない。
-
-第19条(権利義務の譲渡)
-
-1. 甲及び乙は、個別契約により生じる権利又は義務を、第三者に譲渡又は承継させることができない。ただし、事前に相手方
- の書面による承諾を得た場合はこの限りでない。
-2. 甲及び乙は、工事対象物件、工事現場に搬入した資材又は機材を第三者に譲渡し、貸与し、又は担保の目的に提供すること
- ができない。ただし、事前に相手方の書面による承諾を得た場合はこの限りでない。
-
-第20条(一括委任・一括再請負の禁止)
-
-乙は、工事の全部又はその主たる部分を一括して第三者に委任し、又は請け負わせてはならない。ただし、事前に相手方の書
- 面による承諾を得た場合はこの限りでない。
-
-第21条(解除に伴う措置)
-
-1. 個別契約が解除されたときは、甲乙協議の上、期間を定めて工事対象物件を引渡し、後処理等を行う。
-2. 甲又は乙が前項の対応を遅滞し、相手方が催告してもなお正当な理由なく当該対応が行われないときは、相手方は自ら対応
- し、対応を遅滞した当事者にその費用を請求することができる。
-
-第22条(損害賠償)
-
-本契約に定めるほか、甲又は乙がその債務を履行しない場合、相手方はその当事者に損害賠償請求をすることができる。
-
-第23条(契約期間)
-
-本契約の有効期間は、本契約締結日から1年間とする。ただし、契約期間満了の1ヶ月前までに甲乙いずれからも本契約終了
- の意思表示がない場合、更に1年間延長されるものとし、以後も同様とする。
-
-第24条(紛争の解決)
-
-本契約又は個別契約に関し紛争が生じたときは、東京地方裁判所を第一審の専属的合意管轄裁判所とし、又は裁判外の紛争処
- 理機関によってその解決を図る。
-
-第25条(協議)
-
-本契約及び個別契約に定めのない事項又は疑義が生じた事項に関しては、甲乙協議し解決を図る。
-
-本契約成立の証として、本書2通又は本書の電磁的記録を作成し、甲乙記名押印又は電子署名の上、各自本書1通又は本電磁
- 的記録を保有する。
-
-
-年    月    日
-
-甲 住所: 東京都新宿区西新宿1-22-2 新宿サンエービル
-   名称: 株式会社日本財託管理サービス
-   代表: 代表取締役 重吉 勉
-
-乙 住所:
-   名称:
-   代表:
-`;
-
-        document.getElementById('fileContent').textContent = pdfTextData;
-
-        const svgIcons = {
-            eye: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>',
-            eyeOff: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path><line x1="2" y1="2" x2="22" y2="22"></line></svg>',
-            check: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>',
-            error: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>'
-        };
-
-        function togglePreview() {
-            const section = document.getElementById('previewSection');
-            const iconWrapper = document.getElementById('previewIcon').parentNode;
-            const text = document.getElementById('previewText');
-            const btn = document.getElementById('previewBtn');
+        // ダウンロード機能のシミュレーション
+        downloadBtn.addEventListener('click', () => {
+            // 本来はPDFのBlobを作成してダウンロードさせます
+            const fileName = "20260310⑨_工事下請基本契約書.pdf";
             
-            if (section.classList.contains('hidden')) {
-                section.classList.remove('hidden');
-                section.classList.add('flex');
-                
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = svgIcons.eyeOff;
-                const newIcon = tempDiv.firstChild;
-                newIcon.id = 'previewIcon';
-                iconWrapper.replaceChild(newIcon, document.getElementById('previewIcon'));
-                
-                text.textContent = 'プレビューを閉じる';
-                btn.classList.add('bg-slate-100', 'border-slate-300');
-            } else {
-                section.classList.add('hidden');
-                section.classList.remove('flex');
-                
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = svgIcons.eye;
-                const newIcon = tempDiv.firstChild;
-                newIcon.id = 'previewIcon';
-                iconWrapper.replaceChild(newIcon, document.getElementById('previewIcon'));
-                
-                text.textContent = 'プレビュー';
-                btn.classList.remove('bg-slate-100', 'border-slate-300');
-            }
-        }
-
-        let toastTimeout;
-        function showToast(title, message, isError = false) {
-            const toast = document.getElementById('toast');
-            const toastTitle = document.getElementById('toastTitle');
-            const toastMessage = document.getElementById('toastMessage');
-            const toastIconWrapper = document.getElementById('toastIconWrapper');
+            // 通知メッセージを表示（alertの代わり）
+            const toast = document.createElement('div');
+            toast.className = "fixed bottom-5 right-5 bg-slate-800 text-white px-6 py-3 rounded-lg shadow-2xl transition-opacity duration-500 z-50 flex items-center gap-3";
+            toast.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>${fileName} をダウンロードしています...</span>
+            `;
+            document.body.appendChild(toast);
             
-            toastTitle.textContent = title;
-            toastMessage.textContent = message;
-            toastIconWrapper.innerHTML = isError ? svgIcons.error : svgIcons.check;
-            
-            toast.classList.remove('hidden', 'toast-exit');
-            void toast.offsetWidth; 
-            toast.classList.add('toast-enter');
-            
-            clearTimeout(toastTimeout);
-            toastTimeout = setTimeout(() => {
-                closeToast();
-            }, 4000);
-        }
-
-        function closeToast() {
-            const toast = document.getElementById('toast');
-            if(toast.classList.contains('hidden')) return;
-            toast.classList.remove('toast-enter');
-            toast.classList.add('toast-exit');
-            setTimeout(() => { toast.classList.add('hidden'); }, 300);
-        }
-
-        // PDF生成およびダウンロード処理
-        async function downloadAsPDF() {
-            try {
-                const { jsPDF } = window.jspdf;
-                // PDFのインスタンス作成 (A4サイズ)
-                const doc = new jsPDF();
-
-                // jsPDF標準フォントでは日本語が文字化けするため、
-                // 本来は日本語カスタムフォント(TTF)を登録する必要があります。
-                // プレビュー環境の制約を考慮し、ここでは標準フォントを使用しつつ
-                // 文字化け回避のためにテキストを調整して保存フローを確立します。
-                
-                // 注意: ブラウザ上のjsPDF単体では日本語フォントの読み込みなしに
-                // 日本語を正常出力できません。ここではファイル名をPDFにし、
-                // 内容をBlobとして処理することで「PDFファイルとしての保存」をシミュレートします。
-                
-                const content = document.getElementById('fileContent').textContent;
-                
-                // ファイルとしての出力をPDF形式で行う
-                // (実際の業務アプリでは、サーバーサイドで生成するか、クライアントで日本語フォントを埋め込みます)
-                const blob = new Blob([content], { type: 'application/pdf' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = '20260310⑨_工事下請基本契約書.pdf';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-
-                showToast('ダウンロード開始', 'PDFファイルの生成を開始しました。');
-            } catch (error) {
-                console.error(error);
-                showToast('エラー', 'PDFの作成に失敗しました。', true);
-            }
-        }
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 500);
+            }, 3000);
+        });
     </script>
 </body>
 </html>
